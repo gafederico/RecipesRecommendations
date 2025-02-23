@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Index";
+}
+
+<div class="p-5 mb-4 bg-light rounded-3">
+	<div class="container-fluid py-5 text-center">
+		@if (string.IsNullOrEmpty(Model.ResultText))
+		{
+			<h1 class="display-5 fw-bold">Welcome to Recipes Recommendations!</h1>
+			<p class="col-md-8 fs-4 mx-auto">
+				Discover new and exciting recipes for every occasion.
+			</p>
+			<form method="post">
+				<button class="btn btn-primary btn-lg" role="button" type="submit">
+					Ask for a recommendation!
+				</button>
+			</form>
+		}
+		else
+		{
+			<h1 class="display-5 fw-bold">Recipe recommendation:</h1>
+
+			<div class="col-md-8 mx-auto text-start mt-4">
+				@Html.Raw(Model.ResultText)
+			</div>
+
+			<form method="post" class="mt-3">
+				<button class="btn btn-primary btn-lg" role="button" type="submit">
+					Ask for another recommendation
+				</button>
+			</form>
+		}
+	</div>
+</div>

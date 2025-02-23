@@ -1,0 +1,26 @@
+﻿@model IEnumerable<RecipesRecommendations.Models.IngredientModel>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.IngredientName)</th>
+			<th>@Html.DisplayNameFor(model => model.Amount)</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var ingredient in Model)
+		{
+			<tr>
+				<td>@ingredient.IngredientName</td>
+				<td>@ingredient.Amount</td>
+				<td>
+					<form method="post" asp-page-handler="DeleteIngredient">
+						<input type="hidden" name="id" value="@ingredient.IdIngredient" />
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

@@ -1,0 +1,54 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0; /* Ensures no default margin that might push footer up */
+    padding: 0;
+}
+
+
+/* Make the body background a light gray */
+body {
+    margin-bottom: 60px; /* Old property */
+    background-color: #f8f9fa;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Add a subtle shadow or style for the navbar */
+.box-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar brand styling */
+.navbar-brand {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Active nav link color override */
+.nav-link.active {
+    font-weight: 700;
+    color: #0d6efd !important; /* Matches Bootstrap’s primary color */
+}
+
+/* Footer spacing and background if desired */
+footer.footer {
+    background-color: #f1f1f1;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}

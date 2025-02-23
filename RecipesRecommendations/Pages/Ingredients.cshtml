@@ -1,0 +1,28 @@
+﻿@page
+@model RecipesRecommendations.Pages.IngredientsModel
+@{
+	ViewData["Title"] = "Ingredients";
+}
+@{
+	<h2>Add New Ingredient</h2>
+
+	<form method="post">
+		<div class="mb-3">
+			<label asp-for="NewIngredient.IngredientName" class="form-label">@Html.DisplayNameFor(model => model.NewIngredient.IngredientName)</label>
+			<input asp-for="NewIngredient.IngredientName" class="form-control" />
+			<span asp-validation-for="NewIngredient.IngredientName" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="NewIngredient.Amount" class="form-label">@Html.DisplayNameFor(model => model.NewIngredient.Amount)</label>
+			<input asp-for="NewIngredient.Amount" class="form-control" min="1" />
+			<span asp-validation-for="NewIngredient.Amount" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+	<h2>Ingredients</h2>
+	@await Html.PartialAsync("_IngredientsTablePartial", Model.Ingredients)
+}
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}
