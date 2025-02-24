@@ -1,15 +1,15 @@
 ﻿using RecipesRecommendations.Database;
 using System.ComponentModel.DataAnnotations;
 
-namespace RecipesRecommendations.Models
+namespace RecipesRecommendations.ViewModels
 {
-    public class IngredientModel
+    public class IngredientViewModel
     {
         public int IdIngredient { get; set; }
         [Display(Name = "Ingredient Name")]
         public string IngredientName { get; set; }
         public int Amount { get; set; }
-        public IngredientModel()
+        public IngredientViewModel()
         {
             IngredientName = string.Empty;
             Amount = 0;
