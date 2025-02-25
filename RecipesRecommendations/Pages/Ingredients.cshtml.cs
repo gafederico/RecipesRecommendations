@@ -56,20 +56,20 @@ namespace RecipesRecommendations.Pages
                     existingIngredient.Amount += NewIngredient.Amount;
                     _context.Ingredients.Update(existingIngredient.AsIngredient());
                     await _context.SaveChangesAsync();
+                    ModelState.Clear();
                     NewIngredient = new IngredientViewModel();
                 }
                 // If it doesn't exist, we validate before adding it
-                else if (!await ValidateIngredient(NewIngredient.IngredientName))
-                {
-                    ModelState.AddModelError("NewIngredient.IngredientName", "The ingredient is not valid. (English only)");
-                }
-                else
+                else if (await ValidateIngredient(NewIngredient.IngredientName))
                 {
                     _context.Ingredients.Add(NewIngredient.AsIngredient());
                     await _context.SaveChangesAsync();
                     PopulateIngredients();
+                    ModelState.Clear();
                     NewIngredient = new IngredientViewModel();
                 }
+                else
+                    ModelState.AddModelError("NewIngredient.IngredientName", "The ingredient is not valid. (English only)");
 
                 return Page();
             }
