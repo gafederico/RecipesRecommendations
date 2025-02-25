@@ -61,3 +61,16 @@
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<script>
+		document.addEventListener("DOMContentLoaded", () => {
+	  // Attach a submit event listener to every form
+	  document.querySelectorAll("form").forEach(form => {
+		form.addEventListener("submit", () => {
+		  // Disable all buttons on the page immediately after being pressed to prevent double submission
+		  document.querySelectorAll("button").forEach(button => {
+			button.disabled = true;
+		  });
+		});
+	  });
+	});
+</script>

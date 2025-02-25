@@ -1,14 +1,21 @@
 ﻿using RecipesRecommendations.Database;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace RecipesRecommendations.ViewModels
 {
     public class IngredientViewModel
     {
+        [JsonPropertyName("IdIngredient")]
         public int IdIngredient { get; set; }
+
         [Display(Name = "Ingredient Name")]
+        [JsonPropertyName("IngredientName")]
         public string IngredientName { get; set; }
+
+        [JsonPropertyName("Amount")]
         public int Amount { get; set; }
+
         public IngredientViewModel()
         {
             IngredientName = string.Empty;

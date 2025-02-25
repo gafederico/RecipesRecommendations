@@ -26,9 +26,14 @@
 				@Html.Raw(Model.ResultText)
 			</div>
 
-			<form method="post" class="mt-3">
+			<form method="post" class="mt-3 d-inline-block me-2">
 				<button class="btn btn-primary btn-lg" role="button" type="submit">
 					Ask for another recommendation
+				</button>
+			</form>
+			<form method="post" asp-page-handler="UpdateUsedIngredients" class="mt-3 d-inline-block">
+				<button class="btn btn-primary btn-lg btn-success" role="button" type="submit">
+					I'll make this!
 				</button>
 			</form>
 		}
